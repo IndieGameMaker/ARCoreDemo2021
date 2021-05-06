@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ARMeasure.unity
+    guid: c6f22876e25a848c4b6cb6f890f69a9a
+  - enabled: 1
     path: Assets/Scenes/FaceTracking.unity
     guid: 2f310181d493d4654b3937677a42340e
   - enabled: 1

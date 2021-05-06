@@ -398,7 +398,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 898400087}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1242163765}
+        m_TargetAssemblyTypeName: MeasureMgr, Assembly-CSharp
+        m_MethodName: OnInitMarker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &898400087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46326c8d38cec497aacac4e8aa180ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marker: {fileID: 930573136010464756, guid: b031eaf1863d0466a9e3330616bc4594, type: 3}
+  lengthText: {fileID: 1344705695}
 --- !u!4 &1242163766
 Transform:
   m_ObjectHideFlags: 0
