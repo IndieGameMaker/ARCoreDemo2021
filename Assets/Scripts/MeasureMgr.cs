@@ -35,7 +35,7 @@ public class MeasureMgr : MonoBehaviour
             Anchor anchor = hit.Trackable.CreateAnchor(hit.Pose);
             GameObject firstAnchor = Instantiate(marker               //생성할 마커
                                                 , hit.Pose.position   //생성위치
-                                                , Quaternion.identity //각도
+                                                , Quaternion.LookRotation(hit.Pose.up) //각도
                                                 , anchor.transform);  //부모객체
 
             if (tapCount == 2)
