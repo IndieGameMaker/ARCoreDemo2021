@@ -20,6 +20,48 @@ public class MeasureMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.touchCount == 0) return;
+        // 첫 번째 손가락 터치 정보를 저장
+        Touch touch = Input.GetTouch(0);
+
+        // 두 번째 터치 했을 때
+        if (tapCount == 2) return;
+
+        if (touch.phase == TouchPhase.Began
+            && Frame.Raycast(touch.position.x, touch.position.y, flag, out hit))
+        {
+            ++tapCount;
+            //앵커 포인트 생성
+            Anchor anchor = hit.Trackable.CreateAnchor(hit.Pose);
+            GameObject firstAnchor = Instantiate(marker               //생성할 마커
+                                                , hit.Pose.position   //생성위치
+                                                , Quaternion.identity //각도
+                                                , anchor.transform);  //부모객체
+
+            if (tapCount == 2)
+            {
+                DisplayLength(firstPos, hit.Pose.position);
+            }
+            else
+            {
+                firstPos = anchor.transform.position;
+            }
+        }
+    }
+
+    void DisplayLength(Vector3 _firstPos, Vector3 _secondPos)
+    {
+        lengthText.text = Vector3.Distance(_firstPos, _secondPos).ToString("000.00"); 
+    }
+
+    public void OnInitMarker()
+    {
+        GameObject[] markers = GameObject.FindGameObjectsWithTag("MARKER");
+        foreach(var marker in markers)
+        {
+            Destroy(marker);
+        }
+        firstPos = Vector3.zero;
+        tapCount = 0;
     }
 }
